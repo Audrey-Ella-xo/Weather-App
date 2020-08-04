@@ -61,8 +61,7 @@
 This project is a simple weather application that was done in an effort to learn about the use of javascript asyncronous functions, promises, APIs and Async and Await methods, coupled with HTML and CSS.
 
 #### Screenshot
-![image](https://user-images.githubusercontent.com/54140453/88499936-4b76c700-cfbf-11ea-8fc5-83b728d74ae7.png)
-![image](https://user-images.githubusercontent.com/54140453/88499962-60535a80-cfbf-11ea-846c-b167c926e262.png)
+![image](https://user-images.githubusercontent.com/54140453/89303023-83d37080-d663-11ea-98f2-d15b23779371.png)
 ### Installation
 
 To get a local copy up and running follow these simple example steps.
