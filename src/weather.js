@@ -1,6 +1,6 @@
 const weatherPromise = () => {
   const key = '3d86e91bf2b41fc3fd1f768f864ed86c';
-  
+  const submit = document.querySelector('button');
   const cityForm = document.querySelector('form');
 
   const weatherCard = document.createElement('div');
@@ -22,6 +22,22 @@ const weatherPromise = () => {
     return data;
   };
 
+  submit.addEventListener('click', e => {
+    e.preventDefault();
+    const city = cityForm.city.value.trim();
+    cityForm.reset();
+
+    const updateCity = async (city) => {
+      const weatherDet = await getWeather(city);
+
+      return weatherDet;
+    };
+
+    // Update UI with city value;
+    updateCity(city)
+      .then(data => updateUI(data))
+      .catch(err => console.log(err));
+  });
   
   getWeather('lagos')
     .then(data => {
