@@ -22,6 +22,26 @@ const weatherPromise = () => {
     return data;
   };
 
+  const updateUI = (data) => {
+    // const { weatherDet } = data;
+    const cityName = data.name;
+    const { country } = data.sys;
+    const tempValue = data.main.temp;
+    // const tempValue = Math.floor(data.main.temp - KELVIN);
+    const { description } = data.weather[0];
+    const iconId = data.weather[0].icon;
+
+    // update details template;
+    weatherDetails.innerHTML = `
+      <h5 class="my-3">${cityName}, ${country}</h5>
+      <div class="my-3">${description}</div>
+      <div class="display-4 my-4">
+        <span>${tempValue}</span>
+        <span>&deg;C</span>
+      </div>
+    `;
+  };
+
   submit.addEventListener('click', e => {
     e.preventDefault();
     const city = cityForm.city.value.trim();
