@@ -1,16 +1,26 @@
 body{
-    background: #eeedec;
+    /* background: #eeedec; */
+    background: url("./img/cloud.gif") no-repeat center fixed; /* only display once, center horizontal and vertical, dont let scroll change position. */
+  -webkit-background-size: cover;
+  -moz-background-size: cover; /* cover the whole html element. */
+  -o-background-size: cover;
+  background-size: cover;
     letter-spacing: 0.2em;
     font-size: 0.8em;
   }
   .card-container{
     max-width: 400px;
   }
+  /* .card {
+    background-color: rgba(255, 255, 255, 0.363);
+} */
 
   .icon{
     position: relative;
-    top: -50px;
+    top: -20px;
     border-radius: 50%;
     width: 100px;
+    margin-top: 10px;
     margin-bottom: -50px;
+    padding: 20px;
   }

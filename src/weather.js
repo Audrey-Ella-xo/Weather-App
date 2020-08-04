@@ -1,15 +1,17 @@
 const weatherPromise = () => {
+  const KELVIN = 273;
   const key = '3d86e91bf2b41fc3fd1f768f864ed86c';
   const submit = document.querySelector('button');
   const cityForm = document.querySelector('form');
 
   const weatherCard = document.createElement('div');
   weatherCard.setAttribute('class', 'card');
-  weatherCard.classList.add('shadow-lg', 'rounded', 'card-container', 'my-5', 'mx-auto');
+  weatherCard.classList.add('shadow-lg', 'rounded', 'card-container', 'my-5', 'mx-auto', 'd-none');
 
   const weatherDetails = document.createElement('div');
   weatherDetails.setAttribute('class', 'card');
   weatherDetails.classList.add('text-muted', 'text-uppercase', 'text-center');
+  // const icon = document.querySelector('.icon img');
 
   weatherCard.appendChild(weatherDetails);
 
@@ -23,23 +25,42 @@ const weatherPromise = () => {
   };
 
   const updateUI = (data) => {
-    // const { weatherDet } = data;
     const cityName = data.name;
     const { country } = data.sys;
-    const tempValue = data.main.temp;
-    // const tempValue = Math.floor(data.main.temp - KELVIN);
+    const tempValueCelcius = Math.floor(data.main.temp - KELVIN);
     const { description } = data.weather[0];
     const iconId = data.weather[0].icon;
+    const { humidity } = data.main;
+    const { pressure } = data.main;
+
+    // const iconSrc = `http://openweathermap.org/img/w/${iconId}.png`;
+    // icon.setAttribute('src', iconSrc);
 
     // update details template;
     weatherDetails.innerHTML = `
       <h5 class="my-3">${cityName}, ${country}</h5>
       <div class="my-3">${description}</div>
+      <div class="icon bg-light mx-auto text-center">
+        <img src="http://openweathermap.org/img/w/${iconId}.png" alt="">
+      </div>
       <div class="display-4 my-4">
-        <span>${tempValue}</span>
+        <span>${tempValueCelcius}</span>
         <span>&deg;C</span>
       </div>
+      <div class="display-8 my-4">
+        <span>Humidity: ${humidity}%</span>
+        <span>Pressure: ${pressure}</span>
+      </div>
     `;
+
+    // update the night and day icon images
+    // let timeSrc = weather.IsDayTime ? './img/day.svg' : './img/night.svg';
+    // time.setAttribute('src', timeSrc);
+
+    // remove the d-none class if present
+    if (weatherCard.classList.contains('d-none')) {
+      weatherCard.classList.remove('d-none');
+    }
   };
 
   submit.addEventListener('click', e => {
@@ -58,7 +79,7 @@ const weatherPromise = () => {
       .then(data => updateUI(data))
       .catch(err => console.log(err));
   });
-  
+
   getWeather('lagos')
     .then(data => {
       console.log(data);
