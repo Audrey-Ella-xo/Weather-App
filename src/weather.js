@@ -69,6 +69,7 @@ const weatherPromise = () => {
     // Update UI with city value;
     updateCity(city)
       .then(data => updateUI(data))
+      // eslint-disable-next-line no-console
       .catch(err => console.log(err));
   });
 

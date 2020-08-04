@@ -1,6 +1,6 @@
 import './style.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import weatherAPI from './weather';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const header = () => {
   const topContainer = document.createElement('div');
