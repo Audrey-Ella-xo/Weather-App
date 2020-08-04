@@ -11,7 +11,6 @@ const weatherPromise = () => {
   const weatherDetails = document.createElement('div');
   weatherDetails.setAttribute('class', 'card');
   weatherDetails.classList.add('text-muted', 'text-uppercase', 'text-center');
-  // const icon = document.querySelector('.icon img');
 
   weatherCard.appendChild(weatherDetails);
 
@@ -33,9 +32,6 @@ const weatherPromise = () => {
     const { humidity } = data.main;
     const { pressure } = data.main;
 
-    // const iconSrc = `http://openweathermap.org/img/w/${iconId}.png`;
-    // icon.setAttribute('src', iconSrc);
-
     // update details template;
     weatherDetails.innerHTML = `
       <h5 class="my-3">${cityName}, ${country}</h5>
@@ -52,10 +48,6 @@ const weatherPromise = () => {
         <span>Pressure: ${pressure}</span>
       </div>
     `;
-
-    // update the night and day icon images
-    // let timeSrc = weather.IsDayTime ? './img/day.svg' : './img/night.svg';
-    // time.setAttribute('src', timeSrc);
 
     // remove the d-none class if present
     if (weatherCard.classList.contains('d-none')) {
@@ -80,14 +72,6 @@ const weatherPromise = () => {
       .catch(err => console.log(err));
   });
 
-  getWeather('lagos')
-    .then(data => {
-      console.log(data);
-      console.log(data.name);
-      console.log(data.sys.country);
-    })
-    .catch(err => console.log(err));
-  //   return getWeather();
   document.body.appendChild(weatherCard);
 };
 
