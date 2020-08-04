@@ -3,7 +3,7 @@ body{
     letter-spacing: 0.2em;
     font-size: 0.8em;
   }
-  .container{
+  .card-container{
     max-width: 400px;
   }
 
