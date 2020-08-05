@@ -10,6 +10,10 @@ body{
   .card-container{
     max-width: 400px;
   }
+
+  .card {
+    background-color: #f5f0f038;
+  }
  
   .icon{
     position: relative;
@@ -19,4 +23,14 @@ body{
     margin-top: 10px;
     margin-bottom: -50px;
     padding: 20px;
+  }
+
+  .btnDiv {
+    display: inline-grid;
+    position: relative;
+    top: -25px;
+  }
+
+  .cel {
+    margin-bottom: 10px;
   }
