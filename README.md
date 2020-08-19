@@ -115,6 +115,10 @@ This project was built using these technologies.
 * HTML5 and CSS3
 * Javascript
 
+### Potential Future Features
+* Add Day-savings feature
+* Make background change on city day-night conditions
+
 <!-- CONTACT -->
 ## Authors
 
